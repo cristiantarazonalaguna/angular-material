@@ -1,0 +1,64 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+              <p class="card-category" style="color:white">Bar List</p>
+            </div>
+
+            <button mat-raised-button class="btn btn-warning" id="add"><i class="material-icons" (click)="redirect()">add</i></button>
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>barId</th>
+                  <th>barChar</th>
+                  <th>barVarchar</th>
+                  <th>barText</th>
+                  <th>barSmallint</th>
+                  <th>barInteger</th>
+                  <th>barBigint</th>
+                  <th>barReal</th>
+                  <th>barDouble</th>
+                  <th>barDecimal</th>
+                  <th>barBoolean</th>
+                  <th>barDate</th>
+                  <th>barTimestamp</th>
+                  <th>acciones</th>
+                </thead>
+                <tbody>
+                <tr mdbTableCol *ngFor="let el of bars">
+                    <td >{{el.barId}}</td>
+                    <td>{{el.barChar}}</td>
+                    <td>{{el.barVarchar}}</td>
+                    <td>{{el.barText}}</td>
+                    <td>{{el.barSmallint}}</td>
+                    <td>{{el.barInteger}}</td>
+                    <td>{{el.barBigint}}</td>
+                    <td>{{el.barReal}}</td>
+                    <td>{{el.barDouble}}</td>
+                    <td>{{el.barDecimal}}</td>
+                    <td>{{el.barBoolean}}</td>
+                    <td>{{el.barDate}}</td>
+                    <td>{{el.barTimestamp}}</td>
+                    <td>
+                      <button mat-raised-button class="btn btn-success btn-sm" routerLink="/barform-edit/{{el.barId}}"><i class="material-icons">create</i></button>
+                      <button mat-raised-button class="btn btn-warning btn-sm" routerLink="/barform-edit/{{el.barId}}"><i class="material-icons">delete</i></button>
+
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

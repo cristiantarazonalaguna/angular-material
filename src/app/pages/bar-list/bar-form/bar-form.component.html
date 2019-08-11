@@ -1,0 +1,120 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+              <p class="card-category" style="color:white">Bar Form</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barchar" name="barchar"[(ngModel)]="bar.barChar">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barvarchar" name="barvarchar" [(ngModel)]="bar.barVarchar">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="bartext" type="text" name="bartext" [(ngModel)]="bar.barText">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barSmallint" type="number" name="barsmallint" [(ngModel)]="bar.barSmallint">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barInteger" type="number" name="barinteger" [(ngModel)]="bar.barInteger">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barBigint" type="number" name="barbigint" [(ngModel)]="bar.barBigint">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barReal" name="barreal" type="number"  [(ngModel)]="bar.barReal">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="bardouble" type="number" name="bardouble"  [(ngModel)]="bar.barDouble">
+                  </mat-form-field>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barDecimal"type="number" name="bardecimal"  [(ngModel)]="bar.barDecimal">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" name="barBoolean" type="checkbox" [(ngModel)]="bar.barBoolean">
+                        barBoolean
+                      <span class="form-check-sign">
+                         <span class="check"></span>
+                         </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barDate" name="bardate" type="date"  [(ngModel)]="bar.barDate">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="barTimestamp" name="bartimestamp" type="datetime" [(ngModel)]="bar.barTimestamp">
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="onSubmit()">Guardar</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
