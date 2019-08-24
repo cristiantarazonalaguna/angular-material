@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+              <p class="card-category" style="color:white">Bar List</p>
+            </div>
+
+            <button mat-raised-button class="btn btn-success" id="add" (click)="redirect()">Nuevo</button>
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>fooId</th>
+                <th>fooChar</th>
+                <th>fooVarchar</th>
+                <th>fooText</th>
+                <th>fooSmallint</th>
+                <th>fooInteger</th>
+                <th>fooBigint</th>
+                <th>fooReal</th>
+                <th>fooDouble</th>
+                <th>fooDecimal</th>
+                <th>fooBoolean</th>
+                <th>fooDate</th>
+                <th>fooTimestamp</th>
+                <th>acciones</th>
+                </thead>
+                <tbody>
+                <tr mdbTableCol *ngFor="let el of foos">
+                  <td >{{el.fooId}}</td>
+                  <td>{{el.fooChar}}</td>
+                  <td>{{el.fooVarchar}}</td>
+                  <td>{{el.fooText}}</td>
+                  <td>{{el.fooSmallint}}</td>
+                  <td>{{el.fooInteger}}</td>
+                  <td>{{el.fooBigint}}</td>
+                  <td>{{el.fooReal}}</td>
+                  <td>{{el.fooDouble}}</td>
+                  <td>{{el.fooDecimal}}</td>
+                  <td>{{el.fooBoolean}}</td>
+                  <td>{{el.fooDate}}</td>
+                  <td>{{el.fooTimestamp}}</td>
+                  <td>
+                    <button mat-raised-button class="btn btn-success btn-sm" routerLink="/fooform-edit/{{el.fooId}}"><i class="material-icons">create</i></button>
+                    <button mat-raised-button class="btn btn-danger btn-sm" (click)="delete(el.fooId)"><i class="material-icons">delete</i></button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,10 +6,10 @@
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
               <i class="material-icons">content_copy</i>
-              <p class="card-category" style="color:white">Bar List</p>
+              <p class="card-category" style="color:white">Foo List</p>
             </div>
 
-            <button mat-raised-button class="btn btn-warning" id="add"><i class="material-icons" (click)="redirect()">add</i></button>
+            <button mat-raised-button class="btn btn-success" id="add" (click)="redirect()">Nuevo</button>
 
           </div>
           <div class="card-body">
@@ -48,7 +48,7 @@
                     <td>{{el.barTimestamp}}</td>
                     <td>
                       <button mat-raised-button class="btn btn-success btn-sm" routerLink="/barform-edit/{{el.barId}}"><i class="material-icons">create</i></button>
-                      <button mat-raised-button class="btn btn-warning btn-sm" routerLink="/barform-edit/{{el.barId}}"><i class="material-icons">delete</i></button>
+                      <button mat-raised-button class="btn btn-danger btn-sm" (click)="delete(el.barId)"><i class="material-icons">delete</i></button>
 
                     </td>
                 </tr>

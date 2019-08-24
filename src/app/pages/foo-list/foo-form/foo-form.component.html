@@ -7,7 +7,7 @@
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
               <i class="material-icons">content_copy</i>
-              <p class="card-category" style="color:white">Bar Form</p>
+              <p class="card-category" style="color:white">Foo Form</p>
             </div>
           </div>
           <div class="card-body">
@@ -17,26 +17,12 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barchar" name="barchar"[(ngModel)]="bar.barChar">
+                    <input matInput placeholder="foochar" name="foochar"[(ngModel)]="foo.fooChar">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barvarchar" name="barvarchar" [(ngModel)]="bar.barVarchar">
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="bartext" type="text" name="bartext" [(ngModel)]="bar.barText">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barSmallint" type="number" name="barsmallint" [(ngModel)]="bar.barSmallint">
+                    <input matInput placeholder="foovarchar" name="foovarchar" [(ngModel)]="foo.fooVarchar">
                   </mat-form-field>
                 </div>
               </div>
@@ -45,12 +31,12 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barInteger" type="number" name="barinteger" [(ngModel)]="bar.barInteger">
+                    <input matInput placeholder="footext" type="text" name="footext" [(ngModel)]="foo.fooText">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barBigint" type="number" name="barbigint" [(ngModel)]="bar.barBigint">
+                    <input matInput placeholder="fooSmallint" type="number" name="foosmallint" [(ngModel)]="foo.fooSmallint">
                   </mat-form-field>
                 </div>
               </div>
@@ -59,12 +45,26 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barReal" name="barreal" type="number"  [(ngModel)]="bar.barReal">
+                    <input matInput placeholder="fooInteger" type="number" name="barinteger" [(ngModel)]="foo.fooInteger">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="bardouble" type="number" name="bardouble"  [(ngModel)]="bar.barDouble">
+                    <input matInput placeholder="fooBigint" type="number" name="barbigint" [(ngModel)]="foo.fooBigint">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="fooReal" name="barreal" type="number"  [(ngModel)]="foo.fooReal">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="foodouble" type="number" name="foodouble"  [(ngModel)]="foo.fooDouble">
                   </mat-form-field>
                 </div>
 
@@ -74,15 +74,15 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="barDecimal"type="number" name="bardecimal"  [(ngModel)]="bar.barDecimal">
+                    <input matInput placeholder="fooDecimal"type="number" name="foodecimal"  [(ngModel)]="foo.fooDecimal">
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
 
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" name="barBoolean" type="checkbox" [(ngModel)]="bar.barBoolean">
-                        barBoolean
+                      <input class="form-check-input" name="fooBoolean" type="checkbox" [(ngModel)]="foo.fooBoolean">
+                      fooBoolean
                       <span class="form-check-sign">
                          <span class="check"></span>
                          </span>
@@ -97,7 +97,7 @@
                 <div class="col-md-4">
 
                   <mat-form-field>
-                    <input matInput [matDatepicker]="picker" placeholder="bardate" name="bardate" [(ngModel)]="bar.barDate">
+                    <input matInput [matDatepicker]="picker" placeholder="foodate" name="foodate" [(ngModel)]="foo.fooDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
@@ -105,7 +105,7 @@
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
                     <!-- <input matInput placeholder="barTimestamp" name="bartimestamp" type="datetime" [(ngModel)]="bar.barTimestamp">-->
-                    <input matInput [matDatepicker]="picker2" placeholder="bartimestamp" name="bartimestamp" [(ngModel)]="bar.barTimestamp">
+                    <input matInput [matDatepicker]="picker2" placeholder="footimestamp" name="footimestamp" [(ngModel)]="foo.fooTimestamp">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                   </mat-form-field>
@@ -115,8 +115,8 @@
 
               <ng-template [ngIf]="id" [ngIfElse]="loading">
 
-                  <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="onSubmit(id)">Editar</button>
-                  <button mat-raised-button type="submit" class="btn btn-default pull-right" (click)="salir()">Cancelar</button>
+                <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="onSubmit(id)">Editar</button>
+                <button mat-raised-button type="submit" class="btn btn-default pull-right" (click)="salir()">Cancelar</button>
               </ng-template>
               <ng-template #loading>
                 <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="onSubmit(id)">Guardar</button>
@@ -131,4 +131,3 @@
     </div>
   </div>
 </div>
-

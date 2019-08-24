@@ -10,6 +10,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {BarListComponent} from '../../pages/bar-list/bar-list.component';
 import {BarFormComponent} from '../../pages/bar-list/bar-form/bar-form.component';
+import {FooListComponent} from '../../pages/foo-list/foo-list.component';
+import {FooFormComponent} from '../../pages/foo-list/foo-form/foo-form.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -64,6 +66,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     {path: 'bar-list',        component: BarListComponent },
+    {path:'foo-list',         component: FooListComponent},
     {path: 'barform',         component: BarFormComponent},
+    {path: 'fooform',         component: FooFormComponent},
     {path: 'barform-edit/:id', component: BarFormComponent},
+    {path: 'fooform-edit/:id', component: FooFormComponent},
 ];

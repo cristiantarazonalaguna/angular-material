@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -19,11 +19,17 @@ import {
   MatTooltipModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule
+
 } from '@angular/material';
 import {BarListComponent} from '../../pages/bar-list/bar-list.component';
 import {BarFormComponent} from '../../pages/bar-list/bar-form/bar-form.component';
 import {ServiceService} from '../../services/service.service';
+import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {FooListComponent} from '../../pages/foo-list/foo-list.component';
+import {FooFormComponent} from '../../pages/foo-list/foo-form/foo-form.component';
+
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -37,6 +43,8 @@ import {ServiceService} from '../../services/service.service';
     MatSelectModule,
     MatTooltipModule,
     MatDatepickerModule,
+    NgbDatepickerModule,
+
   ],
   declarations: [
     DashboardComponent,
@@ -49,8 +57,10 @@ import {ServiceService} from '../../services/service.service';
     UpgradeComponent,
     BarListComponent,
     BarFormComponent,
+    FooListComponent,
+    FooFormComponent
   ],
-  providers: [ServiceService],
+  providers: [ServiceService,DatePipe],
 })
 
 export class AdminLayoutModule {}

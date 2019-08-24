@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import {ServiceService} from '../../../services/service.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Bar} from '../bar';
-import {NgbCalendar, NgbDateAdapter, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
-import {DatePipe} from '@angular/common';
+import {Foo} from '../foo';
 import * as moment from 'moment';
-import {error} from 'selenium-webdriver';
-
-
 declare var $: any;
 @Component({
-  selector: 'app-bar-form',
-  templateUrl: './bar-form.component.html',
-  styleUrls: ['./bar-form.component.scss'],
-  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}]
+  selector: 'app-foo-form',
+  templateUrl: './foo-form.component.html',
+  styleUrls: ['./foo-form.component.scss']
 })
-export class BarFormComponent implements OnInit {
-  public bar: any;
+export class FooFormComponent implements OnInit {
+
+  public foo: any;
   date: "yyyy-mm-dd";
   public bars: any = [];
   public id;
@@ -25,33 +22,33 @@ export class BarFormComponent implements OnInit {
 
 
   constructor(private datePipe : DatePipe,private calendar : NgbCalendar ,private services: ServiceService, private router: Router, private route: ActivatedRoute) {
-    this.bar = new Bar(null, null, null, null, null, null, null, null, null, null, null, null);
+    this.foo = new Foo(null, null, null, null, null, null, null, null, null, null, null, null);
   }
 
   ngOnInit() {
     this.getRouter();
-     this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
   }
 
   onSubmit(id) {
-    const momentDate = new Date(this.bar.barDate); // Replace event.value with your date value
-    const momentDate2 = new Date(this.bar.barTimestamp); // Replace event.value with your date value
+    const momentDate = new Date(this.foo.fooDate); // Replace event.value with your date value
+    const momentDate2 = new Date(this.foo.fooTimestamp); // Replace event.value with your date value
     const formattedDate = moment(momentDate.toISOString()).format("YYYY-MM-DD");
     const formattedDate2=momentDate2.toISOString();
-    this.bar.barDate = formattedDate;
-    this.bar.barTimestamp = formattedDate2;
+    this.foo.fooDate = formattedDate;
+    this.foo.fooTimestamp = formattedDate2;
 
     model2: Date;
-    var newDate = this.bar.barDate
-    this.bar.barDate = newDate;
+    var newDate = this.foo.fooDate
+    this.foo.fooDate = newDate;
 
     if(id){
-      this.services.getEdit(id,this.bar).subscribe(response=>{
+      this.services.getFooEdit(id,this.foo).subscribe(response=>{
         debugger;
         let message = "¡ Se editó con éxito !";
         let number = 2;
         this.showNotification(number,message);
-        this.router.navigate(['/bar-list']);
+        this.router.navigate(['/foo-list']);
       },error=>{
         let message = "¡ Hubo un error al editar !";
         let number = 4;
@@ -59,12 +56,12 @@ export class BarFormComponent implements OnInit {
         console.log(error);
       })
     }else{
-      this.services.addBar(this.bar).subscribe(response => {
+      this.services.addFoo(this.foo).subscribe(response => {
         debugger;
         let message = "¡ Se registró con éxito !";
         let number = 2;
         this.showNotification(number,message);
-        this.router.navigate(['/bar-list']);
+        this.router.navigate(['/foo-list']);
 
       }, error => {
         let message = "¡ Hubo un error al registrar !";
@@ -78,7 +75,7 @@ export class BarFormComponent implements OnInit {
   }
 
   salir(){
-    this.router.navigate(['/bar-list']);
+    this.router.navigate(['/foo-list']);
   }
 
 
@@ -87,9 +84,9 @@ export class BarFormComponent implements OnInit {
 
     const id = +this.route.snapshot.paramMap.get('id');
 
-    this.services.getBarId(id).subscribe(response => {
+    this.services.getFooId(id).subscribe(response => {
 
-      this.bar = response;
+      this.foo = response;
     });
 
 

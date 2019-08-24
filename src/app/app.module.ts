@@ -1,8 +1,8 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -25,6 +25,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceService} from './services/service.service';
 import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 
 
@@ -39,6 +43,7 @@ import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
     MatDatepickerModule,
     MatNativeDateModule,
     AppRoutingModule,
+    NgbModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -46,7 +51,6 @@ import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
 
   ],
   providers: [ServiceService],
