@@ -18,7 +18,7 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
-  MatDatepickerModule,
+  MatDatepickerModule, MatExpansionModule,
 
 } from '@angular/material';
 import {BarListComponent} from '../../pages/bar-list/bar-list.component';
@@ -27,6 +27,7 @@ import {ServiceService} from '../../services/service.service';
 import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import {FooListComponent} from '../../pages/foo-list/foo-list.component';
 import {FooFormComponent} from '../../pages/foo-list/foo-form/foo-form.component';
+import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
 
 
 
@@ -44,6 +45,8 @@ import {FooFormComponent} from '../../pages/foo-list/foo-form/foo-form.component
     MatTooltipModule,
     MatDatepickerModule,
     NgbDatepickerModule,
+    MatExpansionModule,
+    NgxDaterangepickerMd.forRoot()
 
   ],
   declarations: [

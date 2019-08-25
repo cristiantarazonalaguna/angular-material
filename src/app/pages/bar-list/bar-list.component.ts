@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ServiceService} from '../../services/service.service';
 import {Bar} from './bar';
+import {Moment} from 'moment';
 declare var  $ : any;
 @Component({
   selector: 'app-bar-list',
@@ -16,6 +17,8 @@ export class BarListComponent implements OnInit {
 
   public results:any = [];
 
+  selected: {start: Moment, end: Moment};
+
   constructor(private _route: ActivatedRoute, private _router: Router, private services: ServiceService) {
   }
 
@@ -23,6 +26,8 @@ export class BarListComponent implements OnInit {
       this.getListado();
 
   }
+
+
 
   getListado(){
       this.services.getBar().subscribe(response => {
@@ -51,7 +56,7 @@ export class BarListComponent implements OnInit {
 
       },error => {
 
-          let message = 'Falló la eliminar'
+          let message = 'No se pudo eliminar'
           let color = 4
           console.log(error);
       })

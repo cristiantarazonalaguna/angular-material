@@ -92,7 +92,9 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-
+                  <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
+                         placeholder="Date" show-todays-date="" min-date="date" ng-model="dateTime" class=" md-input"
+                         readonly="readonly">
                 </div>
                 <div class="col-md-4">
 
@@ -105,7 +107,7 @@
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
                     <!-- <input matInput placeholder="barTimestamp" name="bartimestamp" type="datetime" [(ngModel)]="bar.barTimestamp">-->
-                    <input matInput [matDatepicker]="picker2" placeholder="bartimestamp" name="bartimestamp" [(ngModel)]="bar.barTimestamp">
+                    <input matInput [matDatepicker]="picker2" date="true" time="true" placeholder="bartimestamp" name="bartimestamp" [(ngModel)]="bar.barTimestamp">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                   </mat-form-field>

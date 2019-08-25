@@ -6,13 +6,108 @@
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
               <i class="material-icons">content_copy</i>
-              <p class="card-category" style="color:white">Foo List</p>
+              <p class="card-category" style="color:white">Bar List</p>
             </div>
 
             <button mat-raised-button class="btn btn-success" id="add" (click)="redirect()">Nuevo</button>
 
           </div>
           <div class="card-body">
+              <div class="col-md-12" id="contenido">
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                          <mat-panel-title>
+                              Filtro de Busqueda
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                     <div class="row">
+                      <div class="col-md-3">
+                          <mat-form-field>
+                              <input matInput placeholder="barId" name="barId">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                          <mat-form-field>
+                              <input matInput placeholder="barChar" name="barChar">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-3">
+                          <mat-form-field>
+                              <input matInput placeholder="barVarchar" name="barVarchar">
+                          </mat-form-field>
+                      </div>
+                         <div class="col-md-3">
+                             <mat-form-field>
+                                 <input matInput placeholder="barText" name="barText">
+                             </mat-form-field>
+                         </div>
+                  </div>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barSmallint" name="barSmallint">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barInteger" name="barInteger">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barBigint" name="barBigint">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barReal" name="barReal">
+                              </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barDouble" name="barDouble">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barDecimal" name="barDecimal">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barBoolean" name="barBoolean">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barDate" name="barDate">
+                              </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input type="text" matInput
+                                         ngxDaterangepickerMd
+                                         [locale]="{applyLabel: 'ok', format: 'YYYY-MM-DD'}"
+                                         startKey="start"
+                                         endKey="end"
+                                         [(ngModel)]="selected"
+                                         name="daterange"/>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="barDecimal" name="barDecimal">
+                              </mat-form-field>
+                          </div>
+
+                      </div>
+                  </mat-expansion-panel>
+              </div>
+              <div class="col-md-2" id="separador"></div>
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">

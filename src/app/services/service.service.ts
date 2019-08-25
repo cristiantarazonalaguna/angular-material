@@ -37,7 +37,7 @@ export class ServiceService {
     }
 
     getEdit(id,bar:Bar){
-        debugger;
+
         const json = JSON.stringify(bar);
         const params = json;
         const headers = new HttpHeaders().set('Content-Type' , 'application/json');
@@ -46,12 +46,24 @@ export class ServiceService {
     }
 
     addBar(bar: Bar) {
-        debugger;
+
         const json = JSON.stringify(bar);
         const params = json;
         const header = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this.http.post(this.url + 'bar', params, {headers:header});
+
+    }
+
+    getBarForParameters(bar:Bar){
+
+        const param = '?'+bar.barChar?bar.barChar:'';
+
+        const json = JSON.stringify(bar);
+        const params = json;
+        const header = new HttpHeaders().set('Content-Type','application/json');
+
+        return this.http.get(this.url+ 'bar/' + param,{headers:header})
 
     }
 
@@ -95,6 +107,8 @@ export class ServiceService {
         return this.http.post(this.url + 'foo', params, {headers:header});
 
     }
+
+
 
 
 }
