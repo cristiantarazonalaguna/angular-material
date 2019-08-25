@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ServiceService} from '../../services/service.service';
 import {Bar} from './bar';
 import {Moment} from 'moment';
+import {BarGet} from './barGet';
 declare var  $ : any;
 @Component({
   selector: 'app-bar-list',
@@ -13,6 +14,8 @@ export class BarListComponent implements OnInit {
 
   public bar: Bar;
 
+  public barGet: BarGet;
+
   public bars: any = [];
 
   public results:any = [];
@@ -20,6 +23,8 @@ export class BarListComponent implements OnInit {
   selected: {start: Moment, end: Moment};
 
   constructor(private _route: ActivatedRoute, private _router: Router, private services: ServiceService) {
+
+      this.barGet= new BarGet(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
   }
 
   ngOnInit() {
@@ -59,6 +64,17 @@ export class BarListComponent implements OnInit {
           let message = 'No se pudo eliminar'
           let color = 4
           console.log(error);
+      })
+  }
+
+  barGetParam(){
+      this.services.getBarForParameters(this.barGet).subscribe(response=>{
+
+          this.results = response;
+          this.bars = this.results.results;
+
+      }, error1 => {
+
       })
   }
 
