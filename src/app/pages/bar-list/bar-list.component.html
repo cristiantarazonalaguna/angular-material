@@ -14,7 +14,7 @@
           </div>
           <div class="card-body">
               <form>
-                  <div class="col-md-12" id="contenido">
+                  <div class="col-md-8" id="contenido">
                       <mat-expansion-panel>
                           <mat-expansion-panel-header>
                               <mat-panel-title>
@@ -24,7 +24,7 @@
                           <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
-                                      <input matInput placeholder="barId" name="barId" >
+                                      <input matInput placeholder="barId" name="barId"  [(ngModel)]="barGet.barId">
                                   </mat-form-field>
                               </div>
                               <div class="col-md-3">
@@ -32,6 +32,10 @@
                                       <input matInput placeholder="barChar" name="barChar" [(ngModel)]="barGet.barChar">
                                   </mat-form-field>
                               </div>
+
+                          </div>
+
+                          <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
                                       <input matInput placeholder="barVarchar" name="barVarchar" [(ngModel)]="barGet.barVarchar">
@@ -42,7 +46,9 @@
                                       <input matInput placeholder="barText" name="barText" [(ngModel)]="barGet.barText">
                                   </mat-form-field>
                               </div>
+
                           </div>
+
                           <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
@@ -54,6 +60,10 @@
                                       <input matInput placeholder="barInteger" name="barInteger" [(ngModel)]="barGet.barInteger">
                                   </mat-form-field>
                               </div>
+
+                          </div>
+
+                          <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
                                       <input matInput placeholder="barBigint" name="barBigint" [(ngModel)]="barGet.barBigint">
@@ -64,7 +74,10 @@
                                       <input matInput placeholder="barReal" name="barReal" [(ngModel)]="barGet.barReal">
                                   </mat-form-field>
                               </div>
+
+
                           </div>
+
                           <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
@@ -76,6 +89,11 @@
                                       <input matInput placeholder="barDecimal" name="barDecimal" [(ngModel)]="barGet.barDecimal">
                                   </mat-form-field>
                               </div>
+
+
+                          </div>
+                          <br/>
+                          <div class="row">
                               <div class="col-md-3">
                                   <mat-form-field>
                                       <input matInput placeholder="barBoolean" name="barBoolean" [(ngModel)]="barGet.barBoolean">
@@ -88,26 +106,49 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-3">
-                                  <mat-form-field>
-                                      <input type="text" matInput
+                              <div class="col-md-4">
+
+                                      <input class="form-control" type="text"
+                                             placeholder="barDateMin-barDateMax"
                                              ngxDaterangepickerMd
-                                             [locale]="{applyLabel: 'ok', format: 'YYYY-MM-DD'}"
-                                             startKey="start"
-                                             endKey="end"
+                                             [locale]="{
+                                             format: 'YYYY-MM-DD',
+                                             applyLabel: 'Okay',
+                                             clearLabel:'Clear'}"
+                                             [drops]="'up'"
+                                             [opens]="'right'"
+                                             startKey="startDate"
+                                             endKey="endDate"
                                              [(ngModel)]="selected"
-                                             name="daterange"/>
-                                  </mat-form-field>
+                                             name="daterange"autocomplete="off"/>
+
+
                               </div>
-                              <div class="col-md-3">
-                                  <mat-form-field>
-                                      <input matInput placeholder="barDecimal" name="barDecimal">
-                                  </mat-form-field>
+                              <div class="col-md-4">
+
+                                  <input class="form-control" type="text"
+                                         placeholder="barDateMin-barDateMax"
+                                         ngxDaterangepickerMd
+                                         [timePicker]="true"
+                                         [timePickerSeconds]="true"
+                                         [timePickerIncrement]="15"
+                                         [timePicker24Hour]="true"
+                                         [locale]="{format: 'DD/MM/YYYY HH:mm:ss',applyLabel: 'Okay', firstDay: 1}"
+                                         [opens]="'right'"
+                                         [drops]="'up'"
+                                         name="datetimerange"autocomplete="off"
+                                         />
+
+
                               </div>
 
                           </div>
-                          <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barGetParam()">Buscar</button>
+                          <br/>
+                          <div class="row">
 
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barGetParam()">Buscar</button>
+                          <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barclean()">Limpiar</button>
                       </mat-expansion-panel>
                   </div>
               </form>

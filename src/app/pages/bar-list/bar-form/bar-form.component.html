@@ -90,11 +90,19 @@
                   </div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-md-2">
-                  <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
-                         placeholder="Date" show-todays-date="" min-date="date" ng-model="dateTime" class=" md-input"
-                         readonly="readonly">
+                    <input type="text"
+                           ngxDaterangepickerMd
+                           [timePicker]="true"
+                           [timePickerSeconds]="true"
+                           [timePickerIncrement]="15"
+                           [timePicker24Hour]="true"
+                           [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
+
+                           [drops]="'up'"
+                           class="form-control"/>
                 </div>
                 <div class="col-md-4">
 
@@ -114,6 +122,20 @@
                 </div>
 
               </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text"
+                               ngxDaterangepickerMd
+                               [timePicker]="true"
+                               [timePickerSeconds]="true"
+                               [timePickerIncrement]="15"
+                               [timePicker24Hour]="true"
+                               [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
+
+                               [drops]="'up'"
+                               class="form-control"/>
+                    </div>
+                </div>
 
               <ng-template [ngIf]="id" [ngIfElse]="loading">
 

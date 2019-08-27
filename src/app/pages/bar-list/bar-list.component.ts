@@ -4,6 +4,7 @@ import {ServiceService} from '../../services/service.service';
 import {Bar} from './bar';
 import {Moment} from 'moment';
 import {BarGet} from './barGet';
+import * as moment from 'moment';
 declare var  $ : any;
 @Component({
   selector: 'app-bar-list',
@@ -14,27 +15,32 @@ export class BarListComponent implements OnInit {
 
   public bar: Bar;
 
-  public barGet: BarGet;
+  public barGet:BarGet;
 
   public bars: any = [];
 
   public results:any = [];
 
-  selected: {start: Moment, end: Moment};
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private services: ServiceService) {
+    selected = {startDate: moment().subtract(3, 'days'), endDate: moment().add(3, 'days') };
+    selected2:any;
+    constructor(private _route: ActivatedRoute, private _router: Router, private services: ServiceService) {
 
-      this.barGet= new BarGet(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-  }
+        this.barGet= new BarGet(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+
+
+    }
 
   ngOnInit() {
       this.getListado();
+
 
   }
 
 
 
   getListado(){
+
       this.services.getBar().subscribe(response => {
               this.results = response;
               this.bars = this.results.results;
@@ -67,7 +73,25 @@ export class BarListComponent implements OnInit {
       })
   }
 
+
+
+
   barGetParam(){
+      debugger;
+
+      if(this.selected.endDate!=null || this.selected.startDate !=null){
+
+          const momentDateStart = new Date(this.selected.startDate.toDate()); // Replace event.value with your date value
+          const formattedDateStart = moment(momentDateStart.toISOString()).format("YYYY-MM-DD");
+
+          const momentDateEnd = new Date(this.selected.endDate.toDate()); // Replace event.value with your date value
+          const formattedDateEnd = moment(momentDateEnd.toISOString()).format("YYYY-MM-DD");
+
+          this.barGet.barDateMin = formattedDateStart;
+          this.barGet.barDateMax = formattedDateEnd;
+
+      }
+
       this.services.getBarForParameters(this.barGet).subscribe(response=>{
 
           this.results = response;
@@ -76,6 +100,30 @@ export class BarListComponent implements OnInit {
       }, error1 => {
 
       })
+  }
+
+  barclean(){
+
+      this.barGet.barId=null;
+      this.barGet.barChar=null;
+      this.barGet.barVarchar=null;
+      this.barGet.barText=null;
+      this.barGet.barSmallint=null;
+      this.barGet.barInteger=null;
+      this.barGet.barBigint=null;
+      this.barGet.barReal=null;
+      this.barGet.barDouble=null;
+      this.barGet.barDecimal=null;
+      this.barGet.barBoolean=null;
+      this.barGet.barDate=null;
+      this.barGet.barDateMin=null;
+      this.barGet.barDateMax=null;
+      this.barGet.barTimestamp=null;
+      this.barGet.barTimestampMin=null;
+      this.barGet.barTimestampMax=null;
+      this.selected=null;
+      this.getListado();
+
   }
 
     showNotification(color,message){

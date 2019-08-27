@@ -5,7 +5,7 @@ import {Bar} from '../bar';
 import {NgbCalendar, NgbDateAdapter, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import * as moment from 'moment';
-import {error} from 'selenium-webdriver';
+
 
 
 declare var $: any;
