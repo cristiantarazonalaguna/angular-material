@@ -12,10 +12,12 @@
             <button mat-raised-button class="btn btn-success" id="add" (click)="redirect()">Nuevo</button>
 
           </div>
+
           <div class="card-body">
+
               <form>
-                  <div class="col-md-8" id="contenido">
-                      <mat-expansion-panel>
+                  <div class="col-md-2" id="contenido">
+                     <!--<mat-expansion-panel>
                           <mat-expansion-panel-header>
                               <mat-panel-title>
                                   Filtro de Busqueda
@@ -106,7 +108,7 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-4">
+                              <div class="col-md-5">
 
                                       <input class="form-control" type="text"
                                              placeholder="barDateMin-barDateMax"
@@ -124,7 +126,7 @@
 
 
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-5">
 
                                   <input class="form-control" type="text"
                                          placeholder="barDateMin-barDateMax"
@@ -149,12 +151,269 @@
                           </div>
                           <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barGetParam()">Buscar</button>
                           <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barclean()">Limpiar</button>
-                      </mat-expansion-panel>
+                      </mat-expansion-panel>-->
+                      <div class="dropdown ">
+                          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Buscar
+                          </button>
+                          <div class="dropdown-menu dropdown-toggle" style="position: inherit">
+                             <!-- <div class="card-body" style="width: max-content">
+                                  <form>
+                                      <div class="col-md-10">
+
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barId" name="barId"  [(ngModel)]="barGet.barId">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-5">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barChar" name="barChar" [(ngModel)]="barGet.barChar">
+                                                  </mat-form-field>
+                                              </div>
+
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barVarchar" name="barVarchar" [(ngModel)]="barGet.barVarchar">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barText" name="barText" [(ngModel)]="barGet.barText">
+                                                  </mat-form-field>
+                                              </div>
+
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barSmallint" name="barSmallint" [(ngModel)]="barGet.barSmallint">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barInteger" name="barInteger" [(ngModel)]="barGet.barInteger">
+                                                  </mat-form-field>
+                                              </div>
+
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barBigint" name="barBigint" [(ngModel)]="barGet.barBigint">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barReal" name="barReal" [(ngModel)]="barGet.barReal">
+                                                  </mat-form-field>
+                                              </div>
+
+
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barDouble" name="barDouble" [(ngModel)]="barGet.barDouble">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barDecimal" name="barDecimal" [(ngModel)]="barGet.barDecimal">
+                                                  </mat-form-field>
+                                              </div>
+
+
+                                          </div>
+                                          <br/>
+                                          <div class="row">
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barBoolean" name="barBoolean" [(ngModel)]="barGet.barBoolean">
+                                                  </mat-form-field>
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <mat-form-field>
+                                                      <input matInput placeholder="barDate" name="barDate" [(ngModel)]="barGet.barDate">
+                                                  </mat-form-field>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                                <input class="form-control" type="text"
+                                                         placeholder="barDateMin-barDateMax"
+                                                         ngxDaterangepickerMd
+                                                         [locale]="{
+                                                 format: 'YYYY-MM-DD',
+                                                 applyLabel: 'Okay',
+                                                 clearLabel:'Clear'}"
+                                                         [drops]="'up'"
+                                                         [opens]="'right'"
+                                                         startKey="startDate"
+                                                         endKey="endDate"
+                                                         [(ngModel)]="selected"
+                                                         name="daterange"autocomplete="off"/>
+                                              </div>
+                                              <div class="col-md-5">
+                                               <input class="form-control" type="text"
+                                                         placeholder="barDateMin-barDateMax"
+                                                         ngxDaterangepickerMd
+                                                         [timePicker]="true"
+                                                         [timePickerSeconds]="true"
+                                                         [timePickerIncrement]="15"
+                                                         [timePicker24Hour]="true"
+                                                         [locale]="{format: 'DD/MM/YYYY HH:mm:ss',applyLabel: 'Okay', firstDay: 1}"
+                                                         [opens]="'right'"
+                                                         [drops]="'up'"
+                                                         name="datetimerange"autocomplete="off"/>
+                                              </div>
+                                          </div>
+                                               <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barGetParam()">Buscar</button>
+                                               <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="barclean()">Limpiar</button>
+                                          <div class="clearfix"></div>
+
+
+                                      </div>
+                                  </form>
+                              </div>-->
+                              <div class="card-body" style="width: max-content">
+                                  <form>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barId" name="barId" type="text"  [(ngModel)]="barGet.barId">
+                                              </mat-form-field>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barChar" name="barChar" type="text" [(ngModel)]="barGet.barChar">
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                     <div class="row">
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barVarchar" name="barVarchar" type="text" [(ngModel)]="barGet.barVarchar">
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barText" name="barText" type="text" [(ngModel)]="barGet.barText">
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                     <div class="row">
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barSmallint" name="barSmallint" type="numeric" [(ngModel)]="barGet.barSmallint">
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barInteger" name="barInteger" type="numeric" [(ngModel)]="barGet.barInteger">
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barBigint" name="barBigint" type="numeric" [(ngModel)]="barGet.barBigint">
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barReal" name="barReal" type="numeric" [(ngModel)]="barGet.barReal">
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                       <div class="row">
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barDouble" name="barDouble" type="numeric" [(ngModel)]="barGet.barDouble">
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="barDecimal" name="barDecimal" type="numeric" [(ngModel)]="barGet.barDecimal">
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <mat-form-field class="example-full-width">
+                                                   <input matInput placeholder="barBoolean" name="barBoolean" [(ngModel)]="barGet.barBoolean">
+                                               </mat-form-field>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <mat-form-field class="example-full-width">
+                                                   <input matInput class="form-control" type="text" name="barDate"
+                                                          placeholder="barDate"
+                                                          ngxDaterangepickerMd
+                                                          [locale]="{
+                                                          format: 'YYYY-MM-DD',
+                                                          applyLabel: 'Okay',
+                                                          clearLabel:'Clear'}"
+                                                          [singleDatePicker]="true"
+                                                          [opens]="'right'"
+                                                          startKey="startDate"
+                                                          [(ngModel)]="selectSimple"
+                                                          [autoApply]="true"
+                                                           autocomplete="off"/>
+                                               </mat-form-field>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <mat-form-field class="example-full-width">
+                                                   <input matInput class="form-control" type="text"
+                                                          placeholder="barDateMin-barDateMax"
+                                                          ngxDaterangepickerMd
+                                                          [locale]="{
+                                                          format: 'YYYY-MM-DD',
+                                                          applyLabel: 'Okay',
+                                                          clearLabel:'Clear'}"
+                                                          [opens]="'right'"
+                                                          startKey="startDate"
+                                                          endKey="endDate"
+                                                          [(ngModel)]="selected"
+                                                          [autoApply]="true"
+                                                          name="daterange"autocomplete="off"/>
+                                               </mat-form-field>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <mat-form-field class="example-full-width">
+                                                   <input matInput class="form-control" type="text"
+                                                          placeholder="barDateMin-barDateMax"
+                                                          ngxDaterangepickerMd
+                                                          [timePicker]="true"
+                                                          [timePickerSeconds]="true"
+                                                          [timePickerIncrement]="1"
+                                                          [timePicker24Hour]="true"
+                                                          [autoApply]="true"
+                                                          [locale]="{format: 'DD/MM/YYYY HH:mm:ss',applyLabel: 'Okay', firstDay: 1}"
+                                                          [(ngModel)]="selected2"
+                                                          name="datetimerange"autocomplete="off"/>
+                                               </mat-form-field>
+                                           </div>
+                                       </div>
+
+                                          <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="barGetParam()">Buscar</button>
+                                          <button mat-raised-button type="submit" class="btn btn-default pull-right" (click)="barclean()">Limpiar</button>
+                                      <div class="clearfix"></div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
                   </div>
               </form>
-
               <div class="col-md-2" id="separador"></div>
-            <div class="table-responsive">
+              <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
                   <th>barId</th>

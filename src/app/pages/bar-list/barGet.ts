@@ -12,12 +12,12 @@ export class BarGet{
         public barDouble: number,
         public barDecimal: number,
         public barBoolean: boolean,
-        public barDate: Date,
+        public barDate: String,
         public barDateMin: String,
         public barDateMax: String,
-        public barTimestamp: Date,
-        public barTimestampMin: Date,
-        public barTimestampMax: Date
+        public barTimestamp: String,
+        public barTimestampMin: String,
+        public barTimestampMax: String
     ){
 
     }

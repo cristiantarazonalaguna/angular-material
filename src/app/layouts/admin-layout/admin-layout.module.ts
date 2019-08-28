@@ -24,7 +24,7 @@ import {
 import {BarListComponent} from '../../pages/bar-list/bar-list.component';
 import {BarFormComponent} from '../../pages/bar-list/bar-form/bar-form.component';
 import {ServiceService} from '../../services/service.service';
-import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDatepickerModule, NgbDropdown} from '@ng-bootstrap/ng-bootstrap';
 import {FooListComponent} from '../../pages/foo-list/foo-list.component';
 import {FooFormComponent} from '../../pages/foo-list/foo-form/foo-form.component';
 import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
@@ -46,6 +46,7 @@ import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
     MatDatepickerModule,
     NgbDatepickerModule,
     MatExpansionModule,
+    MatInputModule,
     NgxDaterangepickerMd.forRoot()
 
   ],
@@ -61,7 +62,9 @@ import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
     BarListComponent,
     BarFormComponent,
     FooListComponent,
-    FooFormComponent
+    FooFormComponent,
+
+
   ],
   providers: [ServiceService,DatePipe],
 })

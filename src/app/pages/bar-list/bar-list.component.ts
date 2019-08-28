@@ -23,7 +23,10 @@ export class BarListComponent implements OnInit {
 
 
     selected = {startDate: moment().subtract(3, 'days'), endDate: moment().add(3, 'days') };
-    selected2:any;
+    selectSimple= {startDate: moment().subtract(3, 'days'), endDate: moment().add(3, 'days')};
+
+    selected2={startDate: moment().subtract(3, 'days'), endDate: moment().add(3, 'days') };
+
     constructor(private _route: ActivatedRoute, private _router: Router, private services: ServiceService) {
 
         this.barGet= new BarGet(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -33,6 +36,7 @@ export class BarListComponent implements OnInit {
 
   ngOnInit() {
       this.getListado();
+      this.barclean();
 
 
   }
@@ -79,7 +83,7 @@ export class BarListComponent implements OnInit {
   barGetParam(){
       debugger;
 
-      if(this.selected.endDate!=null || this.selected.startDate !=null){
+      if(this.selected.endDate!=null && this.selected.startDate !=null){
 
           const momentDateStart = new Date(this.selected.startDate.toDate()); // Replace event.value with your date value
           const formattedDateStart = moment(momentDateStart.toISOString()).format("YYYY-MM-DD");
@@ -92,14 +96,35 @@ export class BarListComponent implements OnInit {
 
       }
 
+      if(this.selectSimple.startDate!=null && this.selectSimple.endDate !=null ){
+          const momentDateStart = new Date(this.selectSimple.startDate.toDate()); // Replace event.value with your date value
+          const formattedDateStart = moment(momentDateStart.toISOString()).format("YYYY-MM-DD");
+
+          this.barGet.barDate =formattedDateStart;
+      }
+
+      if(this.selected2.endDate!=null || this.selected2.startDate !=null){
+          const momentDateStart = new Date(this.selected2.startDate.toDate()); // Replace event.value with your date value
+          const formattedDateStart = momentDateStart.toISOString();
+
+          const momentDateEnd = new Date(this.selected2.endDate.toDate()); // Replace event.value with your date value
+          const formattedDateEnd = momentDateEnd.toISOString();
+
+          this.barGet.barTimestampMin = formattedDateStart;
+          this.barGet.barTimestampMax = formattedDateEnd;
+
+      }
+
       this.services.getBarForParameters(this.barGet).subscribe(response=>{
 
           this.results = response;
           this.bars = this.results.results;
+          this.barclean();
 
       }, error1 => {
 
       })
+
   }
 
   barclean(){
@@ -122,6 +147,8 @@ export class BarListComponent implements OnInit {
       this.barGet.barTimestampMin=null;
       this.barGet.barTimestampMax=null;
       this.selected=null;
+      this.selectSimple=null;
+      this.selected2=null;
       this.getListado();
 
   }

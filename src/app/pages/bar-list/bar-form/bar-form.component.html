@@ -92,50 +92,49 @@
               </div>
 
               <div class="row">
-                <div class="col-md-2">
-                    <input type="text"
-                           ngxDaterangepickerMd
-                           [timePicker]="true"
-                           [timePickerSeconds]="true"
-                           [timePickerIncrement]="15"
-                           [timePicker24Hour]="true"
-                           [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
+                <div class="col-md-2"></div>
 
-                           [drops]="'up'"
-                           class="form-control"/>
-                </div>
                 <div class="col-md-4">
 
                   <mat-form-field>
-                    <input matInput [matDatepicker]="picker" placeholder="bardate" name="bardate" [(ngModel)]="bar.barDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <input matInput class="form-control" type="text" name="barDate"
+                           placeholder="barDate"
+                           ngxDaterangepickerMd
+                           [locale]="{
+                             format: 'YYYY-MM-DD ',
+                             applyLabel: 'Okay',
+                             clearLabel:'Clear'}"
+                           [singleDatePicker]="true"
+                           [opens]="'right'"
+                           startKey="startDate"
+                           [(ngModel)]="selectSimple2"
+                           [autoApply]="true"
+                           autocomplete="off"/>
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <!-- <input matInput placeholder="barTimestamp" name="bartimestamp" type="datetime" [(ngModel)]="bar.barTimestamp">-->
-                    <input matInput [matDatepicker]="picker2" date="true" time="true" placeholder="bartimestamp" name="bartimestamp" [(ngModel)]="bar.barTimestamp">
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
+                    <input matInput class="form-control" type="text" name="barDateTimestamp"
+                           placeholder="barDateTimestamp"
+                           ngxDaterangepickerMd
+                           [locale]="{
+                             format: 'YYYY-MM-DD HH:mm:ss',
+                             applyLabel: 'Okay',
+                             clearLabel:'Clear'}"
+                           [timePicker]="true"
+                           [timePickerSeconds]="true"
+                           [timePickerIncrement]="1"
+                           [timePicker24Hour]="true"
+                           [singleDatePicker]="true"
+                           [opens]="'right'"
+                           startKey="startDate"
+                           [(ngModel)]="selectSimple"
+                           [autoApply]="true"
+                           autocomplete="off"/>
                   </mat-form-field>
                 </div>
 
               </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text"
-                               ngxDaterangepickerMd
-                               [timePicker]="true"
-                               [timePickerSeconds]="true"
-                               [timePickerIncrement]="15"
-                               [timePicker24Hour]="true"
-                               [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
-
-                               [drops]="'up'"
-                               class="form-control"/>
-                    </div>
-                </div>
 
               <ng-template [ngIf]="id" [ngIfElse]="loading">
 

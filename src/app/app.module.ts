@@ -25,7 +25,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceService} from './services/service.service';
 import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule, NgbDropdown, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -44,6 +44,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatNativeDateModule,
     AppRoutingModule,
     NgbModule,
+    NgbPaginationModule, NgbAlertModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -51,6 +52,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
+
 
   ],
   providers: [ServiceService],

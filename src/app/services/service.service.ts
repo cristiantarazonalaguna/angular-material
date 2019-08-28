@@ -47,7 +47,7 @@ export class ServiceService {
     }
 
     addBar(bar: Bar) {
-
+        debugger;
         const json = JSON.stringify(bar);
         const params = json;
         const header = new HttpHeaders().set('Content-Type', 'application/json');
